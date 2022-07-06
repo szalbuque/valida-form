@@ -1,20 +1,11 @@
+//captura a data de nascimento digitada pelo usuário //
+const dataNascimento = document.querySelector('#nascimento');
+console.log("data digitada: ",dataNascimento);
 
-// função genérica para validar todos os tipos de inputs//
-export function valida(input){
-	// para acessar os data atributes de um elemento, precisamos usar o dataset //
-	const tipoDeInput = input.dataset.tipo;
-	
-	// testar se este tipo de input está dentro de validadores //
-	if(validadores[tipoDeInput]) {
-		// chama a função relativa a este tipo de input //
-		validadores[tipoDeInput](input);
-	}
-
-// objeto que vai conter os diversos tipos de validações //
-const validadores = {
-    // quando o tipo de input for dataNascimento, chama a função validaDataNascimento //
-	dataNascimento: input => validaDataNascimento(input)
-	}
+// chama a função de validação quando o campo de data de nascimento perde o foco //
+dataNascimento.addEventListener('blur', (evento) => {
+    validaDataNascimento(evento.target)
+})
 
 function validaDataNascimento(input){
     const dataRecebida = new Date(input.value);
