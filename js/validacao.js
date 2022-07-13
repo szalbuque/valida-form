@@ -9,6 +9,7 @@ export function valida(input){
 		// chama a função relativa a este tipo de input //
 		validadores[tipoDeInput](input);
 	}
+}
 
 // objeto que vai conter os diversos tipos de validações //
 const validadores = {
@@ -19,7 +20,7 @@ const validadores = {
 function validaDataNascimento(input){
     const dataRecebida = new Date(input.value);
     let mensagem ='';
-
+   alert(dataRecebida);
     if (!maiorQue18(dataRecebida)){
         mensagem = 'Você deve ser maior que 18 anos para se cadastrar.'
     }
